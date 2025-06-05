@@ -109,6 +109,6 @@ Lab Results:
 * **cd820**: Patient's CD8 cell count around 20 weeks after the start of the study.
 
 ---
-**Numerical Data Distribution**
 ![Numerical Distribution](Asset/Numerical_Distribution.png)
+![Numerical Distribution](Asset/Categorical_Distribution.png)
 
