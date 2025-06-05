@@ -26,15 +26,14 @@ The burden of HIV/AIDS remains a major global health challenge. A critical clini
 - 🧠 **How can machine learning be utilized to assist early detection and prevent further transmission within the population?**
 
 
-## 🎯 Goals
+### 🎯 Goals
 
 The main goal is to build a **reliable and interpretable machine learning model** 🤖 to support healthcare professionals in:
 - 📈 Predicting AIDS progression in PLHIV (People Living with HIV)
 - 🩺 Improving clinical decision-making and early intervention
 
----
 
-## 🛠️ Solution Statement
+### 🛠️ Solution Statement
 
 To solve the above challenges, we will implement the following steps:
 
