@@ -110,5 +110,5 @@ Lab Results:
 
 ---
 **Numerical Data Distribution**
-![Numerical Distribution](Asset/Numerical Distribution.png)
+![Numerical Distribution](Asset/Numerical_Distribution.png)
 
