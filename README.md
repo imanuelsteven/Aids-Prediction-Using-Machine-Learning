@@ -305,5 +305,20 @@ Even though Random Forest came out as the best model, we can see that:
 - **Data Quality Check**: Recheck data integrity to make sure the inputs are valid and make sense.
 - **Try Ensemble Methods or Deep Learning Models**: If traditional ML models still underperform, try other techniques like stacking or neural nets.
 
+---
+## Conclusion
+This study explored the use of machine learning techniques to predict whether individuals living with HIV are at risk of progressing to AIDS. Using a comprehensive dataset containing clinical, demographic, and treatment-related attributes, multiple classification models were implemented and compared, including Logistic Regression, Random Forest, and XGBoost.
 
+Among the tested models, the **Random Forest classifier** demonstrated the **best overall performance**, achieving a **cross-validated F1 score of 0.7615** and a **test set F1 score of 0.50** for predicting positive AIDS cases. Despite being the top-performing model, the results indicate that the classifier still struggles to correctly identify infected individuals, as reflected in the relatively low precision and recall scores for the positive class. Furthermore, the overall accuracy of **68%** highlights room for improvement, particularly given the imbalanced nature of the dataset and the critical implications of misclassification in a healthcare context.
+
+To enhance predictive performance and address data imbalance, the study incorporated key data preparation steps such as log transformations, robust scaling, SMOTE oversampling, and Bayesian hyperparameter tuning. These steps aimed to reduce model bias and improve generalization, especially for minority class detection.
+
+In conclusion, while the Random Forest model provides a strong baseline, future work should focus on:
+
+* Integrating additional data sources to increase sample diversity,
+* Exploring advanced ensemble and deep learning models,
+* Refining feature engineering and selection techniques,
+* And improving interpretability to better support real-world clinical decisions.
+
+The findings underscore the potential of machine learning as a valuable tool for early AIDS prediction, which could support more proactive and targeted healthcare interventions for people living with HIV.
 
