@@ -225,7 +225,7 @@ During the data preprocessing phase, I applied several important steps to prepar
 
 ---
 ## Modelling
-
+### Initial Modelling
 In the modeling phase, I used **three different algorithms** to compare their performance:
 
 1. **Logistic Regression**
@@ -240,7 +240,30 @@ By using this approach, I hope to select a model that’s not only accurate, but
 
 ![Modelling Process](Asset/Modelling.png)
 
-### Model Evaluation
+### Hyper Parameter Tuning Using Bayesian Search
+To enhance model performance, I performed **Hyperparameter Optimization** using **BayesianSearchCV**.
+
+**Purpose:**
+- To find the **best combination of hyperparameters** for the **Random Forest** model
+- Improve the model’s performance beyond the baseline
+- Avoid manual trial-and-error by using a smarter and more efficient search method
+
+**How Bayesian Search Works:**
+Bayesian Search tries to understand the **relationship between parameters and model performance**, making the search process **more intelligent and efficient** compared to standard Grid Search or Random Search.
+
+The optimized model will then be used to:
+- Retrain on the training set
+- Make predictions on the test set
+
+**Evaluation:**
+If the model’s performance after tuning with **BayesianSearchCV** shows **improvement** (e.g., a higher F1 Score for the positive AIDS class), then this tuned model will be selected as the **final model**.
+
+However, if the performance **does not improve**, the **baseline model** will be retained as the main model.
+![Bayesian Serach](Asset/Bayesian.png)
+
+
+
+## Model Evaluation
 ![Evaluation Process](Asset/Model_Eval.png)
 
 
