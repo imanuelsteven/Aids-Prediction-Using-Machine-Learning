@@ -215,8 +215,10 @@ During the data preprocessing phase, I applied several important steps to prepar
 6. **One-Hot Encoding**  
    For categorical features, I used **One-Hot Encoding** to avoid misleading the model into thinking that higher category values mean "greater" (e.g., category 3 > 1).  
    This ensures categories are treated equally.
+  ![One Hot Encoding Process](Asset/One_Hot_Encoding.png)
 
-7. **SMOTE (Synthetic Minority Over-sampling Technique)**  
+
+8. **SMOTE (Synthetic Minority Over-sampling Technique)**  
    The target variable (`infected`) was **imbalanced**, with far fewer positive cases.  
    So, I used **SMOTE** to synthetically generate new examples of the minority class, helping the model **learn more fairly** and avoid bias toward the majority class.
-
+  ![SMOTE](Asset/SMOTE.png)
