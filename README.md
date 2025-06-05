@@ -264,6 +264,46 @@ However, if the performance **does not improve**, the **baseline model** will be
 
 
 ## Model Evaluation
+### Baseline Model VS Bayesian Search Model
 ![Evaluation Process](Asset/Model_Eval.png)
+
+###  Final Model & Performance Result
+
+At the end of the modeling process, the **Random Forest** algorithm showed the **best performance** among the three models tested. Here's the result breakdown:
+
+**🔍 Model: Random Forest**
+
+**📊 Cross-Validation F1 Scores:**
+
+- **Average CV F1 Score:** **0.7615**
+---
+
+**🧾 Classification Report on Test Set:**
+
+| Class | Precision | Recall | F1-Score | Support |
+|-------|-----------|--------|----------|---------|
+| **0 (Not Infected)** | 0.77 | 0.76 | 0.77 | 5174 |
+| **1 (Infected)**     | 0.49 | 0.50 | 0.50 | 2326 |
+
+- **Overall Accuracy:** 68%
+- **Macro Avg F1 Score:** 0.63
+- **Weighted Avg F1 Score:** 0.68
+
+---
+
+**Interpretation & Next Steps**
+
+Even though Random Forest came out as the best model, we can see that:
+
+- The **model still struggles** to correctly classify the **positive AIDS cases**, only reaching an F1 Score of **0.50** on class `1`.
+- **Overall accuracy is just 68%**, which isn't very strong considering the sensitive nature of the prediction.
+
+**Things to Improve:**
+
+- **Hyperparameter Tuning**: Perform GridSearchCV or RandomizedSearchCV or anything else to find the best combination of parameters.
+- **More Data**: The model might benefit from more representative samples—especially more positive class examples.
+- **Data Quality Check**: Recheck data integrity to make sure the inputs are valid and make sense.
+- **Try Ensemble Methods or Deep Learning Models**: If traditional ML models still underperform, try other techniques like stacking or neural nets.
+
 
 
