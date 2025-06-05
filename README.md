@@ -56,3 +56,54 @@ We will assess each model using:
 | **F1-Score**  | Balance between precision & recall               | 
 
 ---
+## Data Understanding ❔
+**Data Source:**
+
+Dataset obtained from [AIDS Virus Infection Prediction 💉
+](https://www.kaggle.com/datasets/aadarshvelu/aids-virus-infection-prediction/data)
+
+**Data Information:**
+* About Data: Dataset contains healthcare statistics and categorical information about patients who have been diagnosed with AIDS. This dataset was initially published in 1996.
+
+* Amount of data: 50,000 rows
+
+* Data format: Tabular (CSV)
+
+
+**Column Explanation:**
+
+Time and Key Outcome Information:
+
+* **time**: Time until treatment failure or patient is no longer observed in the study (censoring). This is the primary time variable in survival analysis.
+* **infected**: AIDS infection status of the patient at the end of the study (0=No, 1=Yes). This can be a target variable in some types of analysis.
+* **offtrt**: Indicator of whether the patient stopped treatment before the specified time (0=No, 1=Yes).
+---
+Treatment Information:
+
+* **trt**: Code indicating the type of antiretroviral treatment received by the patient (0=ZDV only, 1=ZDV+ddI, 2=ZDV+Zal, 3=ddI only).
+* **treat**: Simplified version of the treatment indicator (0=ZDV only, 1=others).
+* **oprior**: Whether the patient had received non-ZDV antiretroviral therapy before the study (0=No, 1=Yes).
+* **z30**: Whether the patient used ZDV in the 30 days before a specific time point in the study (0=No, 1=Yes).
+* **preanti**: Number of days the patient had received antiretroviral therapy before a specific time point.
+* **str2**: Patient's experience with antiretroviral therapy (0=naive/never, 1=experienced).
+* **strat**: Stratification category based on the length of the patient's experience with antiretroviral therapy (1='Antiretroviral Naive', 2='> 1 but <= 52 weeks of prior antiretroviral therapy', 3='> 52 weeks').
+---
+Personal Information:
+* **age**: Patient's age at the start of the study (baseline) in years.
+* **wtkg**: Patient's weight at the start of the study (baseline) in kilograms.
+* **race**: Patient's race (0=White, 1=non-white).
+* **gender**: Patient's gender (0=F/Female, 1=M/Male).
+* **homo**: Whether the patient has a history of same-sex sexual activity (0=No, 1=Yes).
+---
+**Medical History:**
+* **hemo**: Whether the patient has hemophilia (blood clotting disorder) (0=No, 1=Yes).
+* **drugs**: Whether the patient has a history of illicit drug use by injection (0=No, 1=Yes).
+* **symptom**: Whether the patient showed symptoms of illness at the start of the study (0=asymptomatic, 1=symptomatic).
+---
+Lab Results:
+
+* **karnof**: Karnofsky score, a general measure to assess the patient's level of physical function (scale 0-100, higher is better) at baseline.
+* **cd40**: Patient's CD4 cell count at baseline.
+* **cd420**: Patient's CD4 cell count around 20 weeks after the start of the study.
+* **cd80**: Patient's CD8 cell count at baseline.
+* **cd820**: Patient's CD8 cell count around 20 weeks after the start of the study.
