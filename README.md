@@ -109,6 +109,82 @@ Lab Results:
 * **cd820**: Patient's CD8 cell count around 20 weeks after the start of the study.
 
 ---
-**Numerical Data Distribution**
 ![Numerical Distribution](Asset/Numerical_Distribution.png)
+![Numerical Distribution](Asset/Categorical_Distribution.png)
+
+---
+
+### Data Distribution Summary
+
+#### 1. `Time`
+
+Patients participated in the study for **66 to 1200 days**, with a **left-skewed distribution**.
+
+#### 2. `Age`
+
+Patients aged **10 to 70 years** joined the study, and the distribution is **fairly normal**.
+
+#### 3. `Wktg` (Body Weight)
+
+Patients had body weights ranging from **around 40 kg to over 140 kg**. The distribution is **slightly right-skewed**, though it appears somewhat normal. Since most data falls between **50 and 100 kg**, there are **a number of outliers**.
+
+#### 4. `Preanti`
+
+Use of antiretroviral drugs for pain relief in HIV/AIDS patients. The distribution is **right-skewed** with **many outliers**.
+
+#### 5. `Cd40`
+
+CD4 cell count (immune cells) at **baseline** ranged from **0 to over 800**, with a **fairly normal distribution**.
+
+#### 6. `Cd420`
+
+CD4 cell count **after 20 days** ranged from **above 0 to over 1000**, showing an **increase from baseline** with a **more normal distribution**, though **outliers still exist**.
+
+#### 7. `Cd80`
+
+Baseline CD8 cell count ranged from **0 to over 4000**, with a **right-skewed distribution**.
+
+#### 8. `Cd820`
+
+CD8 cell count **after 20 days** ranged from **above 0 to 3500**, showing a **decrease from baseline** and a **right-skewed distribution**.
+
+#### 9. `Karnof`
+
+Patient health scores ranged from **35 to 100**, with a **left-skewed distribution**.
+
+---
+
+**📋 Categorical Data Summary**
+
+* `Trt`: 37.3% of patients were treated with **ZDV only**.
+* `Hemo`: 96.5% of patients **do not have hemophilia**.
+* `Homo`: 65% of participants **identify as homosexual**.
+* `Drugs`: 86% of participants **do not use drugs**.
+* `Oprior`: 95% of participants **did not receive non-ZDV antiretroviral therapy** before.
+* `Z30`: 64% of patients **used ZDV in the past 30 days**.
+* `Race`: 70% of participants are **White**.
+* `Gender`: 85% of participants are **male**.
+* `Str2`: 57% of participants **had previous antiretroviral treatment**.
+* `Strat`:
+
+  * 43% **never received any treatment**
+  * 19% **had treatment for less than 52 weeks**
+  * 37% **had treatment multiple times**
+* `Symptom`: 91% of patients **reported no symptoms**.
+* `Treat`: 73% of patients **used treatments beyond just ZDV**.
+* `Offtreatment`: 65% of patients **did not stop treatment before 5 weeks**.
+* `Infected`: 69% of participants were **not infected**, while 31% **were infected**.
+
+---
+### Conclusion
+
+The dataset mostly shows **non-normal distributions**, and the target classes (**infected vs. not infected**) are **imbalanced**, with way more samples in the non-infected group. This can cause machine learning models to be biased toward the majority class.
+
+To tackle this, I plan to:
+
+- Apply **Log1p transformation** and **Robust Scaler** to handle **outliers** more effectively. These outliers seem like valid values, not random noise or errors, so we don’t want to just drop them.
+- Perform **One-Hot Encoding** on categorical columns to make sure the model doesn't misinterpret category values as numeric relationships.
+- Use **SMOTE (Synthetic Minority Over-sampling Technique)** to balance the class distribution. This helps reduce bias and gives the model a fair chance to learn from the minority class.
+
+These preprocessing steps are aimed at boosting model performance and making the predictions more fair and reliable.
 
