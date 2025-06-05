@@ -8,11 +8,11 @@
 - 🌍 **39.9 million** people were living with HIV globally
 - 💊 Only **9.3 million** had access to antiretroviral therapy (ART)
 - ⚰️ **630,000 AIDS-related deaths**
-- 🧪 **1.3 million new AIDS infections**
+- 🧪 **1.3 million new AIDS infections** [[1](https://www.cda.gov.sg/professionals/diseases/hiv)]
 
 In 🇮🇩 **Indonesia**, 2023 data reported:
 - 🧾 **57,299 HIV cases** out of **6.14 million** people tested
-- ➕ **17,121 newly identified AIDS cases**
+- ➕ **17,121 newly identified AIDS cases** [[2](https://indonesia.go.id/kategori/editorial/8833/hari-aids-sedunia-2024-hak-setara-untuk-semua?lang=1#:~:text=Pemerintah%20memprioritaskan%20inovasi%20seperti%20skrining,global%20Akhiri%20AIDS%20di%202030.)]
 
 ⚠️ These numbers likely underrepresent the real situation due to underreporting, undiagnosed cases, and limited access to testing, especially in remote areas.
 
