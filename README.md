@@ -110,7 +110,7 @@ Lab Results:
 
 ---
 ![Numerical Distribution](Asset/Numerical_Distribution.png)
-![Numerical Distribution](Asset/Categorical_Distribution.png)
+![Categorical Distribution](Asset/Categorical_Distribution.png)
 
 ---
 
@@ -187,4 +187,34 @@ To tackle this, I plan to:
 - Use **SMOTE (Synthetic Minority Over-sampling Technique)** to balance the class distribution. This helps reduce bias and gives the model a fair chance to learn from the minority class.
 
 These preprocessing steps are aimed at boosting model performance and making the predictions more fair and reliable.
+
+---
+## Data Preparation
+During the data preprocessing phase, I applied several important steps to prepare the dataset for modeling:
+
+1. **Data Cleaning**  
+   This step involves handling "dirty" data, such as:
+   - Removing **duplicate rows** that can bias the model.
+   - Checking and handling **missing values**, although in this dataset, missing values were minimal or non-existent.
+![Data Cleaning Process](Asset/Data_Cleaning.png)
+
+2. **Data Splitting**  
+   The dataset was split into **training and testing sets** *before* any transformation, scaling, or encoding.  
+  This is important to avoid **data leakage**, where the model might indirectly learn from the test data (like seeing the answer key).
+![Data Splitting Process](Asset/Data_Splitting.png)
+
+4. **Data Transformation (Log1p)**  
+   Some numerical features had **highly skewed distributions**. To address this, I applied the **Log1p transformation** to reduce skewness and help the model learn better patterns.
+
+5. **Feature Scaling (Robust Scaler)**  
+   After transformation, I used **Robust Scaler** for feature scaling.  
+   This scaler is less sensitive to **outliers**, which is perfect since our data contains valid extreme values.
+
+6. **One-Hot Encoding**  
+   For categorical features, I used **One-Hot Encoding** to avoid misleading the model into thinking that higher category values mean "greater" (e.g., category 3 > 1).  
+   This ensures categories are treated equally.
+
+7. **SMOTE (Synthetic Minority Over-sampling Technique)**  
+   The target variable (`infected`) was **imbalanced**, with far fewer positive cases.  
+   So, I used **SMOTE** to synthetically generate new examples of the minority class, helping the model **learn more fairly** and avoid bias toward the majority class.
 
