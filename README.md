@@ -205,10 +205,12 @@ During the data preprocessing phase, I applied several important steps to prepar
 
 4. **Data Transformation (Log1p)**  
    Some numerical features had **highly skewed distributions**. To address this, I applied the **Log1p transformation** to reduce skewness and help the model learn better patterns.
+![Data Transformation Process](Asset/Data_Transform.png)
 
 5. **Feature Scaling (Robust Scaler)**  
    After transformation, I used **Robust Scaler** for feature scaling.  
    This scaler is less sensitive to **outliers**, which is perfect since our data contains valid extreme values.
+![Data Scalling Process](Asset/Data_Scalling.png)
 
 6. **One-Hot Encoding**  
    For categorical features, I used **One-Hot Encoding** to avoid misleading the model into thinking that higher category values mean "greater" (e.g., category 3 > 1).  
