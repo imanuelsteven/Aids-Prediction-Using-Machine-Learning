@@ -300,7 +300,6 @@ Even though Random Forest came out as the best model, we can see that:
 
 **Things to Improve:**
 
-- **Hyperparameter Tuning**: Perform GridSearchCV or RandomizedSearchCV or anything else to find the best combination of parameters.
 - **More Data**: The model might benefit from more representative samples—especially more positive class examples.
 - **Data Quality Check**: Recheck data integrity to make sure the inputs are valid and make sense.
 - **Try Ensemble Methods or Deep Learning Models**: If traditional ML models still underperform, try other techniques like stacking or neural nets.
