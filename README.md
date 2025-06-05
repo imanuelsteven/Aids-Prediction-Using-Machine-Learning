@@ -222,3 +222,25 @@ During the data preprocessing phase, I applied several important steps to prepar
    The target variable (`infected`) was **imbalanced**, with far fewer positive cases.  
    So, I used **SMOTE** to synthetically generate new examples of the minority class, helping the model **learn more fairly** and avoid bias toward the majority class.
   ![SMOTE](Asset/SMOTE.png)
+
+---
+## Modelling
+
+In the modeling phase, I used **three different algorithms** to compare their performance:
+
+1. **Logistic Regression**
+2. **Random Forest**
+3. **XGBoost**
+
+To ensure that the model generalizes well, I also applied **cross-validation** on the training data (`X_train` and `y_train`). Here, I used **K-Fold Cross Validation** with `k=5`, which means the data is split into 5 folds, and the model is trained and validated 5 times—each time using a different fold for validation and the rest for training.
+
+The main goal of using multiple algorithms is to find the **best-performing model**, evaluated primarily using the **F1 Score**, since this metric is more suitable for **imbalanced classification problems** like this one.
+
+By using this approach, I hope to select a model that’s not only accurate, but also **balanced** in identifying both positive and negative AIDS cases.
+
+![Modelling Process](Asset/Modelling.png)
+
+### Model Evaluation
+![Evaluation Process](Asset/Model_Eval.png)
+
+
