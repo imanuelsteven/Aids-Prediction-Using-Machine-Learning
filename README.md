@@ -107,3 +107,8 @@ Lab Results:
 * **cd420**: Patient's CD4 cell count around 20 weeks after the start of the study.
 * **cd80**: Patient's CD8 cell count at baseline.
 * **cd820**: Patient's CD8 cell count around 20 weeks after the start of the study.
+
+---
+**Numerical Data Distribution**
+![Numerical Distribution](Asset/Numerical Distribution.png)
+
