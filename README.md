@@ -54,6 +54,5 @@ We will assess each model using:
 | **Precision** | Correct AIDS predictions among predicted cases   | 
 | **Recall**    | Ability to detect true AIDS cases                | 
 | **F1-Score**  | Balance between precision & recall               | 
-| **ROC-AUC**   | Class separation capability                      | 
 
 ---
