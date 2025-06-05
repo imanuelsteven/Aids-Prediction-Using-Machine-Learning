@@ -37,15 +37,15 @@ The main goal is to build a **reliable and interpretable machine learning model*
 
 To solve the above challenges, we will implement the following steps:
 
-### 1️⃣ Model Benchmarking (Baseline Models):
+**1️⃣ Model Benchmarking (Baseline Models):**
 - 📉 **Logistic Regression (LR)**
 - 🌲 **Random Forest (RF)**
 - 🚀 **Extreme Gradient Boosting (XGBoost)**
 
-### 2️⃣ Hyperparameter Tuning:
+**2️⃣ Hyperparameter Tuning:**
 - 🎯 Use **Bayesian Search** to optimize key model parameters
 
-### 3️⃣ Evaluation Metrics:
+**3️⃣ Evaluation Metrics:**
 We will assess each model using:
 
 | Metric        | Description                                      |
