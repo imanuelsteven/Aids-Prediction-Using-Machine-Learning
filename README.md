@@ -2,17 +2,17 @@
 ---
 ## 📌 Project Domain
 
-**Human Immunodeficiency Virus (HIV)** is a virus that attacks the human immune system, specifically targeting **CD4 cells (T cells)** 🛡️, which are crucial in fighting off infections. If left untreated, HIV can progressively weaken the immune system and lead to **Acquired Immunodeficiency Syndrome (AIDS)** ❌🧫 — a chronic, potentially life-threatening condition marked by severe immune deterioration and opportunistic infections.
+**Human Immunodeficiency Virus (HIV)** is a virus that attacks the human immune system, specifically targeting **CD4 cells (T cells)** 🛡️, which are crucial in fighting off infections. If left untreated, HIV can progressively weaken the immune system and lead to **Acquired Immunodeficiency Syndrome (AIDS)** ❌🧫 — a chronic, potentially life-threatening condition marked by severe immune deterioration and opportunistic infections. [[1](https://www.cda.gov.sg/professionals/diseases/hiv)]
 
 📊 According to **UNAIDS (2023)**:
 - 🌍 **39.9 million** people were living with HIV globally
 - 💊 Only **9.3 million** had access to antiretroviral therapy (ART)
 - ⚰️ **630,000 AIDS-related deaths**
-- 🧪 **1.3 million new AIDS infections**
+- 🧪 **1.3 million new AIDS infections** [[2](https://www.cda.gov.sg/professionals/diseases/hiv)]
 
 In 🇮🇩 **Indonesia**, 2023 data reported:
 - 🧾 **57,299 HIV cases** out of **6.14 million** people tested
-- ➕ **17,121 newly identified AIDS cases**
+- ➕ **17,121 newly identified AIDS cases** [[3](https://indonesia.go.id/kategori/editorial/8833/hari-aids-sedunia-2024-hak-setara-untuk-semua?lang=1#:~:text=Pemerintah%20memprioritaskan%20inovasi%20seperti%20skrining,global%20Akhiri%20AIDS%20di%202030.)]
 
 ⚠️ These numbers likely underrepresent the real situation due to underreporting, undiagnosed cases, and limited access to testing, especially in remote areas.
 
@@ -264,6 +264,60 @@ However, if the performance **does not improve**, the **baseline model** will be
 
 
 ## Model Evaluation
+### Baseline Model VS Bayesian Search Model
 ![Evaluation Process](Asset/Model_Eval.png)
 
+###  Final Model & Performance Result
+
+At the end of the modeling process, the **Random Forest** algorithm showed the **best performance** among the three models tested. Here's the result breakdown:
+
+**🔍 Model: Random Forest**
+
+**📊 Cross-Validation F1 Scores:**
+
+- **Average CV F1 Score:** **0.7615**
+---
+
+**🧾 Classification Report on Test Set:**
+
+| Class | Precision | Recall | F1-Score | Support |
+|-------|-----------|--------|----------|---------|
+| **0 (Not Infected)** | 0.77 | 0.76 | 0.77 | 5174 |
+| **1 (Infected)**     | 0.49 | 0.50 | 0.50 | 2326 |
+
+- **Overall Accuracy:** 68%
+- **Macro Avg F1 Score:** 0.63
+- **Weighted Avg F1 Score:** 0.68
+
+---
+
+**Interpretation & Next Steps**
+
+Even though Random Forest came out as the best model, we can see that:
+
+- The **model still struggles** to correctly classify the **positive AIDS cases**, only reaching an F1 Score of **0.50** on class `1`.
+- **Overall accuracy is just 68%**, which isn't very strong considering the sensitive nature of the prediction.
+
+**Things to Improve:**
+
+- **More Data**: The model might benefit from more representative samples—especially more positive class examples.
+- **Data Quality Check**: Recheck data integrity to make sure the inputs are valid and make sense.
+- **Try Ensemble Methods or Deep Learning Models**: If traditional ML models still underperform, try other techniques like stacking or neural nets.
+
+---
+## Conclusion
+This study explored the use of machine learning techniques to predict whether individuals living with HIV are at risk of progressing to AIDS. Using a comprehensive dataset containing clinical, demographic, and treatment-related attributes, multiple classification models were implemented and compared, including Logistic Regression, Random Forest, and XGBoost.
+
+Among the tested models, the **Random Forest classifier** demonstrated the **best overall performance**, achieving a **cross-validated F1 score of 0.7615** and a **test set F1 score of 0.50** for predicting positive AIDS cases. Despite being the top-performing model, the results indicate that the classifier still struggles to correctly identify infected individuals, as reflected in the relatively low precision and recall scores for the positive class. Furthermore, the overall accuracy of **68%** highlights room for improvement, particularly given the imbalanced nature of the dataset and the critical implications of misclassification in a healthcare context.
+
+To enhance predictive performance and address data imbalance, the study incorporated key data preparation steps such as log transformations, robust scaling, SMOTE oversampling, and Bayesian hyperparameter tuning. These steps aimed to reduce model bias and improve generalization, especially for minority class detection.
+
+In conclusion, while the Random Forest model provides a strong baseline, future work should focus on:
+
+* Integrating additional data sources to increase sample diversity,
+* Exploring advanced ensemble and deep learning models,
+* Refining feature engineering and selection techniques,
+* And improving interpretability to better support real-world clinical decisions.
+
+The findings underscore the potential of machine learning as a valuable tool for early AIDS prediction, which could support more proactive and targeted healthcare interventions for people living with HIV.
 
