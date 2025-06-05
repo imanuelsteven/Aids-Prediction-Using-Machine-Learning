@@ -154,7 +154,7 @@ Patient health scores ranged from **35 to 100**, with a **left-skewed distributi
 
 ---
 
-### 📋 Categorical Data Summary
+**📋 Categorical Data Summary**
 
 * `Trt`: 37.3% of patients were treated with **ZDV only**.
 * `Hemo`: 96.5% of patients **do not have hemophilia**.
@@ -176,7 +176,7 @@ Patient health scores ranged from **35 to 100**, with a **left-skewed distributi
 * `Infected`: 69% of participants were **not infected**, while 31% **were infected**.
 
 ---
-## Conclusion
+### Conclusion
 
 The dataset mostly shows **non-normal distributions**, and the target classes (**infected vs. not infected**) are **imbalanced**, with way more samples in the non-infected group. This can cause machine learning models to be biased toward the majority class.
 
