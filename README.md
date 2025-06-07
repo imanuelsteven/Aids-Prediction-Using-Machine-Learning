@@ -21,10 +21,9 @@ In 🇮🇩 **Indonesia**, 2023 data reported:
 
 The burden of HIV/AIDS remains a major global health challenge. A critical clinical need is to **identify high-risk individuals** living with HIV before they progress to AIDS.
 
-### 🔍 Key Questions:
+### 🔍 Problem Statement
 - 🤔 **How can we accurately predict whether an individual living with HIV is at risk of developing AIDS?**
 - 🧠 **How can machine learning be utilized to assist early detection and prevent further transmission within the population?**
-
 
 ### 🎯 Goals
 
@@ -116,39 +115,39 @@ Lab Results:
 
 ### Data Distribution Summary
 
-#### 1. `Time`
+ 1. `Time`
 
 Patients participated in the study for **66 to 1200 days**, with a **left-skewed distribution**.
 
-#### 2. `Age`
+ 2. `Age`
 
 Patients aged **10 to 70 years** joined the study, and the distribution is **fairly normal**.
 
-#### 3. `Wktg` (Body Weight)
+ 3. `Wktg` (Body Weight)
 
 Patients had body weights ranging from **around 40 kg to over 140 kg**. The distribution is **slightly right-skewed**, though it appears somewhat normal. Since most data falls between **50 and 100 kg**, there are **a number of outliers**.
 
-#### 4. `Preanti`
+ 4. `Preanti`
 
 Use of antiretroviral drugs for pain relief in HIV/AIDS patients. The distribution is **right-skewed** with **many outliers**.
 
-#### 5. `Cd40`
+ 5. `Cd40`
 
 CD4 cell count (immune cells) at **baseline** ranged from **0 to over 800**, with a **fairly normal distribution**.
 
-#### 6. `Cd420`
+ 6. `Cd420`
 
 CD4 cell count **after 20 days** ranged from **above 0 to over 1000**, showing an **increase from baseline** with a **more normal distribution**, though **outliers still exist**.
 
-#### 7. `Cd80`
+ 7. `Cd80`
 
 Baseline CD8 cell count ranged from **0 to over 4000**, with a **right-skewed distribution**.
 
-#### 8. `Cd820`
+ 8. `Cd820`
 
 CD8 cell count **after 20 days** ranged from **above 0 to 3500**, showing a **decrease from baseline** and a **right-skewed distribution**.
 
-#### 9. `Karnof`
+ 9. `Karnof`
 
 Patient health scores ranged from **35 to 100**, with a **left-skewed distribution**.
 
@@ -176,7 +175,7 @@ Patient health scores ranged from **35 to 100**, with a **left-skewed distributi
 * `Infected`: 69% of participants were **not infected**, while 31% **were infected**.
 
 ---
-### Conclusion
+**EDA INSIGTH**
 
 The dataset mostly shows **non-normal distributions**, and the target classes (**infected vs. not infected**) are **imbalanced**, with way more samples in the non-infected group. This can cause machine learning models to be biased toward the majority class.
 
@@ -238,8 +237,6 @@ The main goal of using multiple algorithms is to find the **best-performing mode
 
 By using this approach, I hope to select a model that’s not only accurate, but also **balanced** in identifying both positive and negative AIDS cases.
 
-![Modelling Process](Asset/Modelling.png)
-
 ### Hyper Parameter Tuning Using Bayesian Search
 To enhance model performance, I performed **Hyperparameter Optimization** using **BayesianSearchCV**.
 
@@ -263,7 +260,7 @@ However, if the performance **does not improve**, the **baseline model** will be
 
 
 
-## Model Evaluation
+## Evaluation
 ### Baseline Model VS Bayesian Search Model
 ![Evaluation Process](Asset/Model_Eval.png)
 
