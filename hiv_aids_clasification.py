@@ -105,7 +105,7 @@ Lab Results:
 * **cd80**: Patient's CD8 cell count at baseline.
 * **cd820**: Patient's CD8 cell count around 20 weeks after the start of the study.
 
-## EDA
+**EDA**
 """
 
 df.describe().T
@@ -155,47 +155,47 @@ print("\nUnivariate Analysis for Categorical Columns:")
 for col in categorical_cols:
     plot_univariate_categorical(df, col)
 
-"""## Data Distribution Summary
+"""**Data Distribution Summary**
 
-#### 1. `Time`
+1. `Time`
 
 Patients participated in the study for **66 to 1200 days**, with a **left-skewed distribution**.
 
-#### 2. `Age`
+2. `Age`
 
 Patients aged **10 to 70 years** joined the study, and the distribution is **fairly normal**.
 
-#### 3. `Wktg` (Body Weight)
+3. `Wktg` (Body Weight)
 
 Patients had body weights ranging from **around 40 kg to over 140 kg**. The distribution is **slightly right-skewed**, though it appears somewhat normal. Since most data falls between **50 and 100 kg**, there are **a number of outliers**.
 
-#### 4. `Preanti`
+ 4. `Preanti`
 
 Use of antiretroviral drugs for pain relief in HIV/AIDS patients. The distribution is **right-skewed** with **many outliers**.
 
-#### 5. `Cd40`
+ 5. `Cd40`
 
 CD4 cell count (immune cells) at **baseline** ranged from **0 to over 800**, with a **fairly normal distribution**.
 
-#### 6. `Cd420`
+ 6. `Cd420`
 
 CD4 cell count **after 20 days** ranged from **above 0 to over 1000**, showing an **increase from baseline** with a **more normal distribution**, though **outliers still exist**.
 
-#### 7. `Cd80`
+ 7. `Cd80`
 
 Baseline CD8 cell count ranged from **0 to over 4000**, with a **right-skewed distribution**.
 
-#### 8. `Cd820`
+ 8. `Cd820`
 
 CD8 cell count **after 20 days** ranged from **above 0 to 3500**, showing a **decrease from baseline** and a **right-skewed distribution**.
 
-#### 9. `Karnof`
+ 9. `Karnof`
 
 Patient health scores ranged from **35 to 100**, with a **left-skewed distribution**.
 
 ---
 
-### 📋 Categorical Data Summary
+**Categorical Data Summary**
 
 * `Trt`: 37.3% of patients were treated with **ZDV only**.
 * `Hemo`: 96.5% of patients **do not have hemophilia**.
@@ -216,7 +216,8 @@ Patient health scores ranged from **35 to 100**, with a **left-skewed distributi
 * `Offtreatment`: 65% of patients **did not stop treatment before 5 weeks**.
 * `Infected`: 69% of participants were **not infected**, while 31% **were infected**.
 
-## Conclusion
+**EDA INSIGHT :**
+
 
 The dataset mostly shows **non-normal distributions**, and the target classes (**infected vs. not infected**) are **imbalanced**, with way more samples in the non-infected group. This can cause machine learning models to be biased toward the majority class.
 
@@ -228,7 +229,7 @@ To tackle this, I plan to:
 
 These preprocessing steps are aimed at boosting model performance and making the predictions more fair and reliable.
 
-#Data Preprocessing
+#Data Preparation
 
 During the data preprocessing phase, I applied several important steps to prepare the dataset for modeling:
 
@@ -256,7 +257,7 @@ During the data preprocessing phase, I applied several important steps to prepar
    The target variable (`infected`) was **imbalanced**, with far fewer positive cases.  
    So, I used **SMOTE** to synthetically generate new examples of the minority class, helping the model **learn more fairly** and avoid bias toward the majority class.
 
-## Data Cleaning
+**>> DATA CLEANING**
 
 1. Clean Duplicated Values
 """
@@ -271,7 +272,7 @@ df.isna().sum()
 
 """there is no missing values.
 
-## Data Splitting
+**>> DATA SPLITTING**
 
 The dataset was split into **85% training** and **15% testing**.  
 This approach gives the model **more data to learn from** during training, which can lead to better generalization—especially when the dataset is relatively large like this one (50,000 rows).
@@ -290,7 +291,7 @@ print("Shape of X_test:", X_test.shape)
 X_train_processed = X_train.copy()
 X_test_processed = X_test.copy()
 
-"""## Data Transformation : Using Logp1
+"""**>> DATA TRANSFORMATION USING LOG1P**
 
 Apply log1p to Scale the data to more normal distribution
 """
@@ -306,7 +307,7 @@ print("Applying Log1p transformation...")
 X_train_processed[numerical_cols] = np.log1p(X_train_processed[numerical_cols])
 X_test_processed[numerical_cols] = np.log1p(X_test_processed[numerical_cols])
 
-"""## Data Scalling : Using Robust Scaller"""
+"""**>> DATA SCALLING USING ROBUST SCALLER**"""
 
 print("Applying RobustScaler...")
 rs = RobustScaler()
@@ -319,7 +320,7 @@ for col in numerical_cols:
 """After applying **log transformation** and **scaling**, the data distribution has become **more normalized** compared to the original skewed state.  
 This transformation is expected to help the model **learn patterns more effectively**, which can potentially lead to **higher accuracy and better generalization**.
 
-## One Hot Encoding to Categorical Feature
+**>> ONE HOT ENCODING TO CATEGORICAL COLUMN**
 """
 
 print("\nProcessing categorical features using One-Hot Encoding...")
@@ -346,7 +347,7 @@ X_train_processed.head().T
 
 X_train_processed.describe().T
 
-"""## Applying Smote to Handling Imbalance Data"""
+"""**>> APPLYING SMOTE TO HANDLING IMBALANCE DATA**"""
 
 print("\nApplying SMOTE to handle imbalanced data...")
 smote = SMOTE(random_state=42)
@@ -371,7 +372,7 @@ print(pd.Series(y_train_smote).value_counts(normalize=True))
 
 This balancing step is crucial to help the model **avoid bias** toward the majority class and improve its ability to correctly identify **positive cases**, resulting in a more **fair and accurate prediction**.
 
-# Modelling & Evaluation
+# Modelling
 
 In the modeling phase, I used **three different algorithms** to compare their performance:
 
@@ -437,7 +438,7 @@ if best_model_object is not None:
 else:
     print("\nNo models were trained or no best model identified.")
 
-"""##Hyperparameter Optimization with Bayesian Search
+"""**>> HYPERPARAMETER OPTIMIZATION WITH BAYESIAN SEARCH**
 
 To enhance model performance, I performed **Hyperparameter Optimization** using **BayesianSearchCV**.
 
@@ -457,7 +458,6 @@ The optimized model will then be used to:
 If the model’s performance after tuning with **BayesianSearchCV** shows **improvement** (e.g., a higher F1 Score for the positive AIDS class), then this tuned model will be selected as the **final model**.
 
 However, if the performance **does not improve**, the **baseline model** will be retained as the main model.
-
 """
 
 param_space = {
@@ -504,7 +504,7 @@ print(f"\nTuned RandomForest model saved as '{model_filename_tuned}'")
 """After trying hyperparameter optimization using Bayesian Search, it turns out that the baseline model performed better.
 So, just like the original plan, I decided to stick with the baseline model as the main model for this project.
 
-##  Final Model & Performance Result
+# Evaluation
 
 At the end of the modeling process, the **Random Forest** algorithm showed the **best performance** among the three models tested. Here's the result breakdown:
 
