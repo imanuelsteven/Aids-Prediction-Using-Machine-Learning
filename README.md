@@ -236,6 +236,7 @@ To ensure that the model generalizes well, I also applied **cross-validation** o
 The main goal of using multiple algorithms is to find the **best-performing model**, evaluated primarily using the **F1 Score**, since this metric is more suitable for **imbalanced classification problems** like this one.
 
 By using this approach, I hope to select a model that’s not only accurate, but also **balanced** in identifying both positive and negative AIDS cases.
+![Modelling Process](Asset/Modelling.png)
 
 ### Hyper Parameter Tuning Using Bayesian Search
 To enhance model performance, I performed **Hyperparameter Optimization** using **BayesianSearchCV**.
