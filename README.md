@@ -237,8 +237,6 @@ The main goal of using multiple algorithms is to find the **best-performing mode
 
 By using this approach, I hope to select a model that’s not only accurate, but also **balanced** in identifying both positive and negative AIDS cases.
 
-![Modelling Process](Asset/Modelling.png)
-
 ### Hyper Parameter Tuning Using Bayesian Search
 To enhance model performance, I performed **Hyperparameter Optimization** using **BayesianSearchCV**.
 
