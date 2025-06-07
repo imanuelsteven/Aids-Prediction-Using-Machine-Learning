@@ -227,9 +227,58 @@ During the data preprocessing phase, I applied several important steps to prepar
 ### Initial Modelling
 In the modeling phase, I used **three different algorithms** to compare their performance:
 
-1. **Logistic Regression**
-2. **Random Forest**
-3. **XGBoost**
+1. **📉 Logistic Regression** :
+
+Logistic Regression is a simple and widely used model for binary classification. It models the probability that a given input belongs to a certain class using the logistic (sigmoid) function. Despite its name, it's a classification algorithm.
+
+Strengths: 
+- Simple and fast: Easy to implement and train.
+- Interpretable: Coefficients show the impact of features.
+- Works well with linearly separable data.
+
+Weaknesses:
+- Not suitable for non-linear problems without transformations.
+- Performance drops when there are complex interactions between variables.
+
+**Parameter** : 
+- solver='liblinear': Optimized for small binary classification problems.
+- random_state=42: Fixes randomness for reproducibility.
+  
+2. **🌲 Random Forest** :
+
+This section explains each classification model used, including how they work, what makes them strong or weak, the exact parameters used in this project, and evaluation results (especially for Random Forest).
+
+ Strengths:
+- High accuracy: Often outperforms individual decision trees.
+- Handles high-dimensional data well: Can work with many features without the need for extensive feature selection.
+- Robust to outliers and noise: Because it averages results across trees.
+
+Weaknesses:
+- Tends to overfit on small datasets: Too many trees can learn the training data too well.
+- Computational cost: Training and prediction can be slow for large forests.
+- Less interpretable: Difficult to understand the contribution of each feature to predictions.
+
+**Parameter** : 
+random_state=42: Ensures consistent results by fixing the randomness in tree construction.
+
+3. **⚡XGBoost** :
+
+XGBoost (Extreme Gradient Boosting) is a powerful boosting algorithm that builds trees sequentially, where each new tree tries to fix the errors made by the previous one. It’s optimized for speed and performance and often used in data science competitions.****
+
+Strengths:
+- High performance: Especially for structured/tabular data.
+- Built-in regularization: Helps avoid overfitting.
+- Can handle missing values and sparse data well.
+
+Weaknesses:
+- Harder to tune: Has many hyperparameters that need careful selection.
+- Less interpretable: Boosting models are complex and hard to understand.
+- More sensitive to noise than Random Forest.
+
+**Parameter** : 
+- use_label_encoder=False: Prevents deprecated label encoder usage.
+- eval_metric='logloss': Uses log loss for evaluation.
+- random_state=42: For reproducibility.
 
 To ensure that the model generalizes well, I also applied **cross-validation** on the training data (`X_train` and `y_train`). Here, I used **K-Fold Cross Validation** with `k=5`, which means the data is split into 5 folds, and the model is trained and validated 5 times—each time using a different fold for validation and the rest for training.
 
