@@ -310,11 +310,6 @@ However, if the performance **does not improve**, the **baseline model** will be
 **Search Space Configuration**
 The following hyperparameter ranges were defined as the search space for the optimization process. The BayesSearchCV algorithm explored these ranges to find the optimal combination.
 
-Purpose:
-- To find the best combination of hyperparameters for the Random Forest model.
-- To improve the model’s performance beyond the baseline.
-- To avoid manual trial-and-error by using a smarter and more efficient search method.
-  
 Ranges Parameter : 
 - `n_estimators`: The number of trees in the forest. Range: Integer from 100 to 300.
 - `max_depth`: The maximum depth of each tree. Range: Integer from 5 to 30.
