@@ -287,7 +287,7 @@ The main goal of using multiple algorithms is to find the **best-performing mode
 By using this approach, I hope to select a model that’s not only accurate, but also **balanced** in identifying both positive and negative AIDS cases.
 ![Modelling Process](Asset/Modelling.png)
 
-### Hyper Parameter Tuning Using Bayesian Search
+### Hyper Parameter Tuning Using Bayesian Search On Random Forrest
 To enhance model performance, I performed **Hyperparameter Optimization** using **BayesianSearchCV**.
 
 **Purpose:**
@@ -302,7 +302,7 @@ The optimized model will then be used to:
 - Retrain on the training set
 - Make predictions on the test set
 
-**Evaluation:**
+**Notes:**
 If the model’s performance after tuning with **BayesianSearchCV** shows **improvement** (e.g., a higher F1 Score for the positive AIDS class), then this tuned model will be selected as the **final model**.
 
 However, if the performance **does not improve**, the **baseline model** will be retained as the main model.
@@ -310,6 +310,12 @@ However, if the performance **does not improve**, the **baseline model** will be
 **Search Space Configuration**
 The following hyperparameter ranges were defined as the search space for the optimization process. The BayesSearchCV algorithm explored these ranges to find the optimal combination.
 
+Purpose:
+- To find the best combination of hyperparameters for the Random Forest model.
+- To improve the model’s performance beyond the baseline.
+- To avoid manual trial-and-error by using a smarter and more efficient search method.
+  
+Ranges Parameter : 
 - `n_estimators`: The number of trees in the forest. Range: Integer from 100 to 300.
 - `max_depth`: The maximum depth of each tree. Range: Integer from 5 to 30.
 - `min_samples_split`: The minimum number of samples required to split an internal node. Range: Integer from 2 to 5.
@@ -321,35 +327,16 @@ The following hyperparameter ranges were defined as the search space for the opt
 Hyper Parameter Tuning Using Bayesian Search
 To enhance model performance, I performed Hyperparameter Optimization using BayesianSearchCV.
 
-Purpose:
-
-- To find the best combination of hyperparameters for the Random Forest model.
-- To improve the model’s performance beyond the baseline.
-- To avoid manual trial-and-error by using a smarter and more efficient search method.
-
-**Search Space Configuration**
-The following hyperparameter ranges were defined as the search space for the optimization process. The BayesSearchCV algorithm explored these ranges to find the optimal combination.
-
-- `n_estimators`: The number of trees in the forest. Range: Integer from 100 to 300.
-- `max_depth`: The maximum depth of each tree. Range: Integer from 5 to 30.
-- `min_samples_split`: The minimum number of samples required to split an internal node. Range: Integer from 2 to 5.
-- `min_samples_leaf`: The minimum number of samples required to be at a leaf node. Range: Integer from 1 to 5.
-- `criterion`: The function to measure the quality of a split. Value: Fixed to 'gini'.
-
 **Tuning Results**
 The search was configured to run for 15 iterations (n_iter=15) using 5-fold cross-validation (cv=5) to optimize for the F1-score. After the process completed, the best combination of hyperparameters found was as follows:
 
-(Note: Please replace the example values below with the actual output from your code's bayes_search.best_params_)
+- criterion: 'gini'
+- max_depth: 25
+- min_samples_leaf: 1
+- min_samples_split: 2
+- n_estimators: 299
 
-criterion: 'gini'
-max_depth: 25
-min_samples_leaf: 1
-min_samples_split: 2
-n_estimators: 250
-The model with these optimized parameters was then selected for final evaluation.
-
-
-
+After trying hyperparameter optimization using Bayesian Search, it turns out that the baseline model performed better. So, just like the original plan, I decided to stick with the baseline model as the main model for this project.
 
 
 ## Evaluation
